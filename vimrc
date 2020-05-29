@@ -49,6 +49,15 @@ set number
 set showmatch
 set history=1000
 set undolevels=1000
-set wildignore=*.swp,*.bak,*.pyc
 set visualbell
 set noerrorbells
+
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " Linux/MacOSX
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_max_files=0
+let g:ctrlp_user_command =  
+  \ ['.git', 'cd %s && git ls-files -co --exclude-standard'] 
