@@ -22,3 +22,10 @@ bind-key h split-window -v
  
 # Easy config reload
 bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded."
+
+set-window-option -g automatic-rename off
+
+bind -n C-k send-keys -R \; clear-history
+set -g default-terminal "xterm"
+
+
