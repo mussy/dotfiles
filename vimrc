@@ -10,7 +10,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'sbdchd/neoformat'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-<<<<<<< HEAD
 Plug 'preservim/nerdcommenter'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-commentary'
@@ -33,10 +32,6 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'vim-airline/vim-airline'
 Plug 'flazz/vim-colorschemes'
-=======
-Plug 'morhetz/gruvbox'
-Plug 'ThePrimeagen/vim-be-good'
->>>>>>> cbea87aa71bdc35b84069e4f92f0d76a0112e8c0
 
 function! PlugLoaded(name)
     return (
@@ -55,7 +50,6 @@ endif
 
 call plug#end()
 
-set spell
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -63,25 +57,12 @@ set textwidth=79
 set expandtab
 set autoindent
 set encoding=utf-8
-<<<<<<< HEAD
 set relativenumber
-=======
-set number
-set relativenumber 
-syntax on 
-colorscheme gruvbox
-set background=dark
-
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-
-
->>>>>>> cbea87aa71bdc35b84069e4f92f0d76a0112e8c0
 set number
 set showmatch
 set history=1000
 set smartcase
 set undolevels=1000
-<<<<<<< HEAD
 set nobackup
 set noswapfile
 set visualbell
@@ -152,11 +133,3 @@ set background=dark
 
 " this is for avoiding "tmux" and "vim" conflict "
 set t_Co=256
-=======
-set wildignore=*.swp,*.bak,*.pyc
-set visualbell
-set noerrorbells
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-
->>>>>>> cbea87aa71bdc35b84069e4f92f0d76a0112e8c0
