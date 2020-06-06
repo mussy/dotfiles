@@ -21,7 +21,7 @@ Plug 'prettier/vim-prettier', {
 Plug 'ervandew/supertab'
 Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
-
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'mbbill/undotree'
 Plug 'honza/vim-snippets'
 Plug 'w0rp/ale'
@@ -49,6 +49,7 @@ if PlugLoaded('Valloric/YouCompleteMe')
 endif
 
 call plug#end()
+call plug#helptags()
 
 set tabstop=4
 set softtabstop=4
@@ -61,7 +62,6 @@ set relativenumber
 set number
 set showmatch
 set history=1000
-set smartcase
 set undolevels=1000
 set nobackup
 set noswapfile
@@ -74,6 +74,7 @@ set nofoldenable
 set foldlevel=2
 set undofile
 set incsearch
+set ignorecase
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgray
 
@@ -133,3 +134,60 @@ set background=dark
 
 " this is for avoiding "tmux" and "vim" conflict "
 set t_Co=256
+
+" taging "
+let g:gutentags_add_default_project_roots = 0
+let g:gutentags_project_root = ['package.json', '.git']
+let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
+let g:gutentags_generate_on_new = 1
+let g:gutentags_generate_on_missing = 1
+let g:gutentags_generate_on_write = 1
+let g:gutentags_generate_on_empty_buffer = 0
+let g:gutentags_ctags_exclude = [
+      \ '*.git', '*.svg', '*.hg',
+      \ '*/tests/*',
+      \ 'build',
+      \ 'dist',
+      \ '*sites/*/files/*',
+      \ 'bin',
+      \ 'node_modules',
+      \ 'bower_components',
+      \ 'cache',
+      \ 'compiled',
+      \ 'docs',
+      \ 'example',
+      \ 'bundle',
+      \ 'vendor',
+      \ '*.md',
+      \ '*-lock.json',
+      \ '*.lock',
+      \ '*bundle*.js',
+      \ '*build*.js',
+      \ '.*rc*',
+      \ '*.json',
+      \ '*.min.*',
+      \ '*.map',
+      \ '*.bak',
+      \ '*.zip',
+      \ '*.pyc',
+      \ '*.class',
+      \ '*.sln',
+      \ '*.Master',
+      \ '*.csproj',
+      \ '*.tmp',
+      \ '*.csproj.user',
+      \ '*.cache',
+      \ '*.pdb',
+      \ 'tags*',
+      \ 'cscope.*',
+      \ '*.css',
+      \ '*.less',
+      \ '*.scss',
+      \ '*.exe', '*.dll',
+      \ '*.mp3', '*.ogg', '*.flac',
+      \ '*.swp', '*.swo',
+      \ '*.bmp', '*.gif', '*.ico', '*.jpg', '*.png',
+      \ '*.rar', '*.zip', '*.tar', '*.tar.gz', '*.tar.xz', '*.tar.bz2',
+      \ '*.pdf', '*.doc', '*.docx', '*.ppt', '*.pptx',
+      \ ]
+
