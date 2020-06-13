@@ -24,6 +24,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'mbbill/undotree'
 Plug 'honza/vim-snippets'
 Plug 'w0rp/ale'
+Plug 'chemzqm/vim-jsx-improve'
 
 " VIM COLOR SCHEMES "
 Plug 'morhetz/gruvbox'
@@ -109,9 +110,10 @@ let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
-let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
+let g:ale_fixers = {'javascript': ['prettier', 'eslint'],'php':['prettier']}
 let b:ale_linters = {'javascript': ['eslint']}
 let g:ale_fix_on_save = 1
+
 
 " Remapping "
 nnoremap <leader>h :wincmd h<CR>
@@ -120,9 +122,22 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+noremap Y "*y
 
 syntax on 
 colorscheme gruvbox
 set background=dark
 
 set t_Co=256
+
+
+" Prettier for PHP
+function! PrettierPhpCursor()
+  let save_pos = getpos(".")
+  %! prettier  --parser=php
+  call setpos('.', save_pos)
+endfunction
+" define custom command
+command! PrettierPhp call PrettierPhpCursor()
+" format on save
+autocmd BufwritePre *.php PrettierPhp
