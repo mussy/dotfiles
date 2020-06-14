@@ -20,11 +20,10 @@ Plug 'prettier/vim-prettier', {
 Plug 'ervandew/supertab'
 Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'mbbill/undotree'
 Plug 'honza/vim-snippets'
 Plug 'w0rp/ale'
-Plug 'chemzqm/vim-jsx-improve'
+Plug 'tpope/vim-fugitive'
 
 " VIM COLOR SCHEMES "
 Plug 'morhetz/gruvbox'
@@ -72,6 +71,7 @@ set undofile
 set incsearch
 set ignorecase
 set colorcolumn=80
+set completeopt-=preview
 highlight ColorColumn ctermbg=0 guibg=lightgray
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
