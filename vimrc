@@ -5,12 +5,12 @@ Plug 'preservim/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeTabsToggle'] }
 Plug 'jistr/vim-nerdtree-tabs', { 'on':  'NERDTreeTabsToggle' }
 Plug 'othree/yajs.vim'
 Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'html', 'vue'] }
 Plug 'junegunn/fzf.vim'
 Plug 'sbdchd/neoformat'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plug 'preservim/nerdcommenter'
-Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-commentary'
 Plug 'othree/yajs.vim'
 Plug 'prettier/vim-prettier', {
@@ -124,7 +124,8 @@ nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 noremap Y "*y
 
-syntax on 
+filetype plugin on
+syntax on
 colorscheme gruvbox
 set background=dark
 
@@ -141,3 +142,7 @@ endfunction
 command! PrettierPhp call PrettierPhpCursor()
 " format on save
 autocmd BufwritePre *.php PrettierPhp
+
+" solving syntax issue
+autocmd BufEnter * :syntax sync fromstart
+
