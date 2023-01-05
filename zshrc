@@ -14,8 +14,9 @@ source $ZSH/oh-my-zsh.sh
 
 alias vhost="sudo /opt/lampp/lampp start"
 alias lara="php artisan "
-alias proj="cd /mnt/data/MS313/1_PROJECT/1_WEB/ && tmux ";
-alias note="nvim /tmp/note.txt"
+alias proj="cd /home/mussy/data/MS313/1_PROJECT/1_WEB/";
+alias note="nvim /home/mussy/note.txt"
+alias vpn="sudo /etc/nekoray/launcher"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -27,3 +28,7 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/gitlab/id_rsa
 ssh-add ~/.ssh/github/id_rsa
+
+
+# mount data partion
+mountpoint -q ~/data || sudo mount /dev/sda4 ~/data
